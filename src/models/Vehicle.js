@@ -4,9 +4,11 @@ class Vehicle {
     #minSpeed;
     #maxSpeed;
 
-    constructor(model, traction) {
+    constructor(model, traction, minSpeed, maxSpeed) {
         this.#model = model;
         this.#traction = traction;
+        this.#minSpeed = minSpeed;
+        this.#maxSpeed = maxSpeed;
     }
 
     get #model() {
@@ -21,5 +23,25 @@ class Vehicle {
     }
     set #traction(traction) {
         this.#traction = traction;
+    }
+
+    get #minSpeed() {
+        return this.#minSpeed;
+    }
+    set #minSpeed(minSpeed) {
+        this.#minSpeed = minSpeed;
+    }
+
+    get #maxSpeed() {
+        return this.#maxSpeed;
+    }
+    set #maxSpeed(maxSpeed) {
+        this.#maxSpeed = maxSpeed;
+    }
+
+    moveForward() {
+        return Math.floor(
+            (Math.random() * this.#maxSpeed) + this.#minSpeed
+        );
     }
 }
